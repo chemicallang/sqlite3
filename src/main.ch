@@ -1,18 +1,13 @@
-// Returns the version string (e.g., "3.45.1")
-// Simple test: no arguments, returns a pointer to a string.
-@extern
-public func sqlite3_libversion() : *char;
+// Modern SQLite3 API for Chemical
+// This module provides a high-level, performant wrapper around the SQLite3 C library.
 
-// an arbitrary struct
-public struct sqlite3 {}
+// Export all public components
+// (In Chemical, anything public in the module is accessible to importers)
 
-// Opens a database connection.
-// filename: UTF-8 path or ":memory:"
-// ppDb: Out parameter (pointer to a pointer) where the handle is stored.
-@extern
-public func sqlite3_open(filename : *char, ppDb : *mut *mut sqlite3) : int;
+public namespace sqlite {
 
-// Closes the database connection.
-// db: The handle obtained from sqlite3_open.
-@extern
-public func sqlite3_close(db : *mut sqlite3) : int;
+public func libversion() : std::string_view {
+    return std::string_view(ffi::sqlite3_libversion())
+}
+
+}
