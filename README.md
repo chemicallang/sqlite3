@@ -2,6 +2,16 @@
 
 SQLite3 API for Chemical Programming Language
 
+## Usage
+
+In your Chemical Mod
+
+```chmod
+import "github.com/chemicallang/sqlite3"
+```
+
+## Example
+
 ```ch
 using namespace sqlite;
 using std::Result;
